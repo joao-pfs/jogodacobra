@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Cobrinha</title>
+    <link rel="stylesheet" href="snake-style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1 class="game-title">Snake Game</h1>
+            <p class="game-subtitle">Use as setas do teclado para mover, ESPAÇO para pausar</p>
+        </header>
+
+        <div class="game-info">
+            <div class="score-card">
+                <div class="score-value" id="score">0</div>
+                <div class="score-label">Pontuação</div>
+            </div>
+
+            <div class="game-controls">
+                <button id="startBtn" class="btn btn-primary">Iniciar Jogo</button>
+                <button id="pauseBtn" class="btn btn-secondary" style="display: none;">Pausar</button>
+                <button id="resetBtn" class="btn btn-outline">Reiniciar</button>
+            </div>
+        </div>
+
+        <div class="game-board-container">
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+        </div>
+
+        <div id="gameOverScreen" class="game-over-screen" style="display: none;">
+            <div class="game-over-card">
+                <h2 class="game-over-title">Game Over!</h2>
+                <p class="game-over-score">Pontuação Final: <span id="finalScore">0</span></p>
+                <button id="playAgainBtn" class="btn btn-primary">Jogar Novamente</button>
+            </div>
+        </div>
+
+        <div id="startScreen" class="start-screen">
+            <div class="start-card">
+                <h2 class="start-title">Pronto para Jogar?</h2>
+                <p class="start-subtitle">Pressione ESPAÇO ou clique em Iniciar!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="snake-script.js"></script>
+</body>
+</html>
