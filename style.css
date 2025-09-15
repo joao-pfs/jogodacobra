@@ -1,0 +1,226 @@
+/* Reset e configurações básicas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, hsl(220, 15%, 8%), hsl(220, 15%, 6%));
+    color: hsl(210, 40%, 98%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 24px;
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Header */
+.game-header {
+    text-align: center;
+}
+
+.game-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-shadow: 
+        0 0 10px hsl(120, 100%, 50%), 
+        0 0 20px hsl(120, 100%, 50%), 
+        0 0 30px hsl(120, 100%, 50%);
+}
+
+.game-subtitle {
+    color: hsl(210, 20%, 70%);
+    font-size: 0.9rem;
+}
+
+/* Game Info */
+.game-info {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.score-card {
+    background: linear-gradient(135deg, hsl(220, 15%, 12%, 0.1), hsl(220, 15%, 12%, 0.05));
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(220, 15%, 20%, 0.3);
+    border-radius: 12px;
+    padding: 16px 24px;
+    text-align: center;
+}
+
+.score-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: hsl(120, 100%, 50%);
+}
+
+.score-label {
+    font-size: 0.875rem;
+    color: hsl(210, 20%, 70%);
+}
+
+.game-controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Botões */
+.btn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.875rem;
+}
+
+.btn-primary {
+    background: hsl(120, 100%, 50%);
+    color: hsl(220, 15%, 8%);
+}
+
+.btn-primary:hover {
+    background: hsl(120, 100%, 45%);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: hsl(220, 15%, 20%);
+    color: hsl(210, 40%, 98%);
+}
+
+.btn-secondary:hover {
+    background: hsl(220, 15%, 25%);
+}
+
+.btn-outline {
+    background: transparent;
+    color: hsl(210, 40%, 98%);
+    border: 1px solid hsl(220, 15%, 20%);
+}
+
+.btn-outline:hover {
+    background: hsl(220, 15%, 20%);
+}
+
+/* Tabuleiro do jogo */
+.game-board-container {
+    position: relative;
+}
+
+#gameCanvas {
+    background: linear-gradient(135deg, hsl(220, 15%, 12%), hsl(220, 15%, 8%));
+    border: 2px solid hsl(220, 15%, 20%);
+    border-radius: 12px;
+    box-shadow: 0 10px 40px -10px hsl(220, 15%, 2%, 0.8);
+}
+
+/* Telas de estado */
+.game-over-screen, .start-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: hsl(220, 15%, 8%, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+}
+
+.game-over-card, .start-card {
+    background: hsl(220, 15%, 12%);
+    border: 1px solid hsl(220, 15%, 20%);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.game-over-title, .start-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.game-over-title {
+    color: hsl(0, 84%, 60%);
+}
+
+.game-over-score, .start-subtitle {
+    color: hsl(210, 20%, 70%);
+    margin-bottom: 24px;
+}
+
+/* Animações */
+@keyframes pulse-glow {
+    0% { 
+        box-shadow: 0 0 20px hsl(120, 100%, 50%, 0.5); 
+    }
+    100% { 
+        box-shadow: 0 0 30px hsl(120, 100%, 50%, 0.8), 0 0 40px hsl(120, 100%, 50%, 0.4); 
+    }
+}
+
+@keyframes food-pulse {
+    0% { 
+        transform: scale(1);
+    }
+    100% { 
+        transform: scale(1.1);
+    }
+}
+
+.game-over-flash {
+    animation: game-over-flash 0.5s ease-in-out;
+}
+
+@keyframes game-over-flash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .game-container {
+        padding: 16px;
+        gap: 16px;
+    }
+    
+    .game-title {
+        font-size: 2rem;
+    }
+    
+    #gameCanvas {
+        width: 320px;
+        height: 320px;
+    }
+    
+    .game-info {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .game-controls {
+        justify-content: center;
+    }
+}
