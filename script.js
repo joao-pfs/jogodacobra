@@ -28,7 +28,7 @@ const finalScoreElement = document.getElementById('finalScore');
 
 // Cores do jogo
 const COLORS = {
-    background: 'hsl(220, 15%, 12%)',
+    background: 'hsla(0, 0%, 100%, 1.00)',
     snakeHead: 'hsl(120, 100%, 50%)',
     snakeBody: 'hsl(120, 100%, 45%)',
     food: 'hsl(0, 100%, 60%)',
