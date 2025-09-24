@@ -53,14 +53,14 @@ function setupEventListeners() {
 
 function handleKeyPress(e) {
     if (!gameStarted) {
-        if (e.code === 'Space') {
+        if (e.code === 'space') {
             e.preventDefault();
             startGame();
         }
         return;
     }
 
-    if (e.code === 'Space') {
+    if (e.code === 'space') {
         e.preventDefault();
         togglePause();
         return;
